@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.alisthub.com/$1 [R=301,L]
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+#AuthName "Restricted Area"
+#AuthType Basic
+#AuthUserFile /var/www/html/.htpasswd
+#AuthGroupFile /dev/null
+#require valid-user
+
+#Options +FollowSymlinks
+#rewritecond %{http_host} ^alisthub.com [nc]
+#rewriterule ^(.*)$ http://www.alisthub.com/$1 [r=301,nc]
+
